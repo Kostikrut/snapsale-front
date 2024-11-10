@@ -1,0 +1,294 @@
+/* AddListingVariants.css */
+
+.manage-variants-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: var(--color-accent-dark);
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.variant-img {
+  width: 300px;
+  height: 300px;
+}
+
+.lisitng-search-bar {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.lisitng-search-bar input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-accent-light-grey);
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border 0.2s ease;
+}
+
+.lisitng-search-bar input:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.lisitng-search-bar button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.lisitng-search-bar button:hover {
+  background-color: var(--color-accent-dark);
+}
+
+select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--color-accent-light-grey);
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.existing-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.variant {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--color-accent-light-grey);
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+}
+
+.variant img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.variant h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.variant p {
+  margin: 0.25rem 0;
+  color: #666;
+}
+
+.delete-variant {
+  padding: 0.5rem 1rem;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-variant:hover {
+  background-color: #c0392b;
+}
+
+.listing-variants-container {
+  padding: 1rem 0;
+}
+
+.listing-variant {
+  display: flex;
+  gap: 1.5rem;
+  flex-direction: column;
+}
+
+.listing-variant div {
+  display: flex;
+  flex-direction: column;
+}
+
+.listing-variant label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.listing-variant input[type="text"],
+.listing-variant input[type="number"],
+.listing-variant input[type="file"] {
+  padding: 0.75rem;
+  border: 1px solid var(--color-accent-light-grey);
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.listing-variant input[type="file"] {
+  padding: 0.5rem;
+}
+
+.listing-variant input:focus {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+.variant-ctas {
+  margin-top: 1rem;
+}
+
+.variant-ctas button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.variant-ctas button:hover {
+  background-color: var(--color-accent-dark);
+}
+
+/* AddListingVariants.css */
+
+/* Container for the entire variants section */
+.variants-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Styling for individual variant items */
+.variant {
+  background-color: white;
+  border: 1px solid var(--color-accent-light-grey);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.variant img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-accent-light-grey);
+}
+
+.variant h3 {
+  font-size: 1.2rem;
+  color: var(--color-accent-dark);
+  margin: 10px 0 5px;
+}
+
+.variant p {
+  font-size: 0.9rem;
+  color: var(--color-accent-dark);
+  margin: 5px 0;
+}
+
+/* Add hover effect to each variant */
+.variant:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* variants */
+/* Container for the variants */
+.variants-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: space-between;
+}
+
+/* Each individual variant card */
+.variant {
+  display: flex;
+  background-color: white;
+  border: 1px solid var(--color-accent-light-grey);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  width: 250px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Add hover effect for variant cards */
+.variant:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Styling for variant images */
+.variant-image img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-accent-light-grey);
+  margin-bottom: 10px;
+}
+
+/* Styling for variant details */
+.variant-details h3 {
+  font-size: 1.2rem;
+  color: var(--color-accent-dark);
+  margin: 10px 0;
+}
+
+.variant-details p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: var(--color-accent-dark);
+}
+
+.delete-variant {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-variant:hover {
+  background-color: #c0392b;
+}

@@ -1,0 +1,120 @@
+/* Cart.css */
+
+.cart-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1.6rem;
+  color: var(--color-primary-dark);
+  max-width: 800px;
+  margin: auto;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  height: 55rem;
+}
+
+.cart-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.cart-list {
+  overflow: scroll;
+  list-style-type: none;
+  padding: 0;
+  background-color: var(--color-accent-light);
+  height: 100%;
+}
+
+.cart-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 4px solid #ffffff;
+}
+
+.cart-list li:last-child {
+  border-bottom: none;
+}
+
+.cart-item-img {
+  width: 6.5rem;
+  height: 6.5rem;
+}
+
+.amount-container {
+  width: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount-container span {
+  background-color: #e4e4e4;
+  color: rgb(24, 24, 24);
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  width: 3rem;
+}
+
+.cart-item-name {
+  font-weight: bold;
+  width: 100px;
+}
+
+.cart-item-price {
+  margin-right: 20px;
+}
+
+.cart-remove-button,
+.amount-container button {
+  background-color: var(--color-accent-dark);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 0.6rem;
+  cursor: pointer;
+}
+
+.cart-remove-button:hover,
+.cart-order-button:hover {
+  background-color: var(--color-accent);
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: center;
+}
+
+.summary {
+  font-size: 1.4rem;
+}
+
+.cart-clear-button,
+.cart-order-button {
+  display: block;
+  width: 100%;
+  background-color: var(--color-accent-dark);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.6rem;
+  margin-top: 1.4rem;
+  cursor: pointer;
+  text-align: center;
+}
+
+.cart-clear-button:hover {
+  background-color: var(--color-accent);
+}
+
+.cart-empty-message {
+  text-align: center;
+  font-style: italic;
+  color: #888;
+}

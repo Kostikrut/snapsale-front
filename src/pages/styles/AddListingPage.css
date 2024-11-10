@@ -1,0 +1,96 @@
+/* AddListing.css */
+.add-listing-container {
+  max-width: 75rem; /* 960px */
+  margin: 0 auto;
+  padding: 2rem; /* 32px */
+  background-color: #f9f9f9;
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0.125rem 0.9375rem rgba(0, 0, 0, 0.1); /* 2px 15px */
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 1.5rem; /* 24px */
+}
+
+.add-listing-container label {
+  color: black;
+}
+
+.listing-header {
+  display: flex;
+  justify-content: space-between;
+}
+/* .listing-header button {
+  display: flex;
+  justify-content: space-between;
+} */
+
+.add-listing-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* 24px */
+}
+
+.add-listing-form label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem; /* 8px */
+}
+
+.add-listing-form input[type="text"],
+.add-listing-form input[type="number"],
+.add-listing-form select,
+.add-listing-form input[type="file"] {
+  width: 100%;
+  padding: 0.75rem 1rem; /* 12px 16px */
+  margin-bottom: 1rem; /* 16px */
+  border: 0.0625rem solid #ddd; /* 1px */
+  border-radius: 0.3125rem; /* 5px */
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.add-listing-form input[type="text"]:focus,
+.add-listing-form input[type="number"]:focus,
+.add-listing-form select:focus,
+.add-listing-form input[type="file"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.listing-img {
+  margin-bottom: 1.5rem; /* 24px */
+}
+
+.listing-img img {
+  max-width: 100%;
+  border-radius: 0.3125rem; /* 5px */
+}
+
+.description-field {
+  margin-bottom: 1.5rem; /* 24px */
+}
+
+.add-listing-btn,
+.delete-listing {
+  padding: 0.75rem 1.25rem; /* 12px 20px */
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.3125rem; /* 5px */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.add-listing-btn:hover,
+.delete-listing:hover {
+  background-color: #0056b3;
+  transform: translateY(-0.125rem); /* 2px */
+}
+
+.add-listing-btn:active {
+  background-color: #004080;
+  transform: translateY(0);
+}

@@ -1,0 +1,33 @@
+.payment-success {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--color-accent-light-grey);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.payment-success h1 {
+  color: var(--color-accent);
+  margin-bottom: 1rem;
+}
+
+.payment-success p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.listings ul {
+  padding-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.listings li {
+  margin: 0.5rem 0;
+  list-style-type: disc;
+}
+
+.listings h2 {
+  margin-top: 2rem;
+  color: var(--color-accent-dark);
+}

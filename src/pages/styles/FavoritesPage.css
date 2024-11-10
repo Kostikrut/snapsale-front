@@ -1,0 +1,28 @@
+.favorites-page {
+  max-width: 1200px;
+  min-height: 100vh;
+  background-color: #f9f9f9;
+  margin: 0 auto;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.favorites-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-accent-dark);
+  margin-bottom: 1rem;
+}
+
+.favorites-empty {
+  font-size: 1.5rem;
+  color: var(--color-accent-dark-grey);
+}
+
+.favorites-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}

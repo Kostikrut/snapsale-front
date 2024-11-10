@@ -1,0 +1,54 @@
+.carousel-container {
+  position: relative;
+  width: 1500px;
+  height: 500px;
+  margin: 2rem;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.carousel-arrow {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.carousel-container:hover .carousel-arrow {
+  opacity: 1;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border-radius: 4px;
+  z-index: 1;
+}
+
+.carousel-arrow-left {
+  left: 10px;
+}
+
+.carousel-arrow-right {
+  right: 10px;
+}

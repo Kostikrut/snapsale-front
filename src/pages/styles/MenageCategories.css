@@ -1,0 +1,126 @@
+.menage-categories-container {
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 2rem; /* 32px */
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.delete-category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  margin: 10px 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-item:hover {
+  background-color: #f1f1f1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.category-item-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.category-img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.delete-catefory-btn {
+  padding: 10px 15px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.delete-catefory-btn:hover {
+  background-color: #ff3b3b;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.delete-catefory-btn:focus {
+  outline: none;
+}
+
+.delete-catefory-btn:active {
+  background-color: #e63939;
+}
+
+.add-category-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
+  align-items: center;
+  padding: 10px 15px;
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-inputs-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.add-category-input {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 0;
+  transition: border-color 0.3s ease;
+  width: 30rem;
+}
+
+.add-category-img {
+  width: 30%;
+}
+
+.add-category-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.add-category-button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+.add-category-button:hover {
+  background-color: #0056b3;
+}
+
+.add-category-button:active {
+  background-color: #004494;
+}

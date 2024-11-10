@@ -1,0 +1,99 @@
+/* Container for the main shipping and checkout section */
+.shipping-checkout-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--color-accent-light-grey);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles */
+.shipping-checkout-container h2 {
+  color: var(--color-accent);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--color-accent-dark);
+  padding-bottom: 0.5rem;
+}
+
+/* Subheader for smaller sections */
+.shipping-checkout-container h3,
+.shipping-checkout-container h4 {
+  color: var(--color-accent-dark);
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Invoice details styling */
+.invoice-details {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1.5rem;
+}
+
+.invoice-details p {
+  margin: 0.5rem 0;
+  color: var(--color-accent-dark);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Select dropdown styling */
+.shipping-checkout-container select {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: var(--color-accent-dark);
+  background-color: white;
+  border: 2px solid var(--color-accent);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.shipping-checkout-container select:hover {
+  border-color: var(--color-accent-dark);
+}
+
+/* Address form input styles */
+.address-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: var(--color-accent-dark);
+  background-color: white;
+  border: 2px solid var(--color-accent);
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.address-form input:hover,
+.address-form input:focus {
+  border-color: var(--color-accent-dark);
+  outline: none;
+}
+
+/* Button styles */
+.shipping-checkout-container button {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  color: white;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+}
+
+.shipping-checkout-container button:hover {
+  background-color: var(--color-accent-dark);
+  transform: scale(1.02);
+}

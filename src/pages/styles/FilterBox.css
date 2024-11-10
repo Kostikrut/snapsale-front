@@ -1,0 +1,79 @@
+/* FilterBox.css */
+.filter-box {
+  max-width: 30rem; /* 480px */
+  min-width: 20rem; /* 480px */
+  margin: 0 auto;
+  padding: 2rem; /* 32px */
+  background-color: #f9f9f9;
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section {
+  margin-bottom: 2rem; /* 32px */
+}
+
+.filter-section h3 {
+  font-size: 1.5rem; /* 24px */
+  margin-bottom: 1rem; /* 16px */
+  color: #333;
+}
+
+.rc-slider {
+  margin: 1rem 0; /* 16px */
+}
+
+.filter-section div {
+  font-size: 1rem; /* 16px */
+  color: #555;
+}
+
+.filter-section label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem; /* 8px */
+}
+
+.filter-section input[type="checkbox"] {
+  margin-right: 0.5rem; /* 8px */
+}
+
+.filter-section select {
+  width: 100%;
+  padding: 0.75rem 1rem; /* 12px 16px */
+  border: 0.0625rem solid #ddd; /* 1px */
+  border-radius: 0.3125rem; /* 5px */
+  font-size: 1rem; /* 16px */
+  transition: border-color 0.3s;
+}
+
+.filter-section select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.filter-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-btn button {
+  padding: 0.75rem 1.25rem; /* 12px 20px */
+  font-size: 1rem; /* 16px */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0.3125rem; /* 5px */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.filter-btn button:hover {
+  background-color: #0056b3;
+  transform: translateY(-0.125rem); /* 2px */
+}
+
+.filter-btn button:active {
+  background-color: #004080;
+  transform: translateY(0);
+}

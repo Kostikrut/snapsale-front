@@ -1,0 +1,47 @@
+.account-references {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+}
+
+.account-content {
+  width: 100%;
+  margin: 2rem;
+  height: auto;
+  align-self: center;
+}
+
+.account-sidebar {
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-accent-dark);
+  height: 2.5rem;
+}
+
+.sidebar-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  height: 2rem;
+}
+
+.sidebar-link {
+  list-style: none;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sidebar-link button {
+  background-color: var(--color-accent-dark);
+  border-style: none;
+  color: #fff;
+  width: 20rem;
+}
+
+.sidebar-link.active button {
+  border-bottom: 3px solid #fff;
+  padding: none;
+  height: 2rem;
+}

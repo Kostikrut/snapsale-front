@@ -1,0 +1,39 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+  background-color: var(
+    --color-accent-light-grey
+  ); /* Feel free to adjust to your design */
+  color: var(--color-accent-dark); /* Matches your design style */
+}
+
+.not-found-title {
+  font-size: 5rem;
+  font-weight: bold;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.not-found-message {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  color: var(--color-accent-dark); /* Adjust for readability */
+}
+
+.not-found-home-link {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: var(--color-accent);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.not-found-home-link:hover {
+  background-color: var(--color-accent-dark);
+}

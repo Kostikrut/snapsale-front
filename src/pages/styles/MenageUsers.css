@@ -1,0 +1,101 @@
+/* MenageUsers.css */
+.menage-users-container {
+  max-width: 75rem; /* 960px */
+  margin: 0 auto;
+  padding: 2rem; /* 32px */
+  background-color: #f9f9f9;
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0.125rem 0.9375rem rgba(0, 0, 0, 0.1); /* 2px 15px */
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem; /* 20px */
+}
+
+h1 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 1.25rem; /* 20px */
+}
+
+.edit-selected-user label {
+  color: black;
+}
+
+.menage-users-container input[type="text"],
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 0.75rem 0.9375rem; /* 12px 15px */
+  margin: 0.625rem 0; /* 10px */
+  border: 0.0625rem solid #ddd; /* 1px */
+  border-radius: 0.3125rem; /* 5px */
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.menage-users-container input[type="text"]:focus,
+select:focus,
+input[type="file"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.menage-users-btn {
+  padding: 0.75rem 1.25rem; /* 12px 20px */
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3125rem; /* 5px */
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.menage-users-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-0.125rem); /* 2px */
+}
+
+.menage-users-btn:active {
+  background-color: #004080;
+  transform: translateY(0);
+}
+
+.search-users,
+.select-user,
+.edit-selected-user {
+  background-color: #f9f9f9;
+  padding: 1.25rem; /* 20px */
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0.125rem 0.9375rem rgba(0, 0, 0, 0.1); /* 2px 15px */
+}
+
+.user-id {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-profile-img {
+  max-width: 9.375rem; /* 150px */
+  height: auto;
+  border-radius: 50%;
+  margin: 0.625rem 0; /* 10px */
+}
+
+.edit-selected-user div {
+  margin-bottom: 0.9375rem; /* 15px */
+}
+
+.edit-selected-user p {
+  font-weight: bold;
+}
+
+.edit-user {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.9375rem; /* 15px */
+}
+
+.edit-user .menage-users-btn {
+  width: 48%;
+}

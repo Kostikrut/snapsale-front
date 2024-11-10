@@ -1,0 +1,33 @@
+.search-list-container {
+  height: 700px;
+  width: 35rem;
+  background-color: #fff;
+  overflow: scroll;
+  position: absolute;
+  top: 50px;
+  box-shadow: 3px 3px 5px 0px rgba(136, 136, 136, 0.75);
+}
+
+.search-list {
+  padding-left: 0;
+}
+
+.list-item a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  list-style: none;
+  border-bottom: 1px solid rgb(185, 185, 185);
+  color: rgb(73, 73, 73);
+}
+
+.list-item:hover {
+  background-color: #e2e2e2;
+  cursor: pointer;
+}
+
+.list-item-img {
+  height: 100px;
+}
