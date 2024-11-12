@@ -19,14 +19,14 @@ function PaymentSuccess() {
   useEffect(() => {
     const getSession = async () => {
       const checkout = await fetch(
-        `${apiUrl}/api/v1/invoices/${invoiceId}/retrieveCheckoutAndUpdateInvoice`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            authorization: `Bearer ${bearerToken}`,
-          },
-        }
+        `${apiUrl}/api/v1/invoices/${invoiceId}/retrieveCheckoutAndUpdateInvoice`
+        // {
+        //   method: "GET",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //     authorization: `Bearer ${bearerToken}`,
+        //   },
+        // }
       );
 
       const checkoutSession = await checkout.json();
@@ -42,7 +42,7 @@ function PaymentSuccess() {
     };
 
     getSession();
-  }, [bearerToken, invoiceId, clearCart]);
+  }, [invoiceId, clearCart]);
 
   if (!invoiceData) return <div>Loading...</div>;
 

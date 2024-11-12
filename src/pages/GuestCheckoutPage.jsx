@@ -84,17 +84,6 @@ const GuestCheckoutPage = () => {
         err.message || "Couldnt create invoice, please try again later."
       );
     }
-
-    // try {
-    //   const res = await axios.post("/api/create-checkout-session", {
-    //     guestInfo,
-    //     shippingOpt,
-    //     cart,
-    //   });
-    //   window.location.href = res.data.url;
-    // } catch (error) {
-    //   console.error("Error creating checkout session:", error);
-    // }
   };
 
   return (

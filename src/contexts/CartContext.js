@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useCallback } from "react";
 
 import renderToast from "../utils/renderToast";
 import useFetchUrls from "../hooks/useFetchUrls";
@@ -85,10 +85,10 @@ export const CartProvider = ({ children }) => {
     renderToast("info", "Product removed from cart");
   };
 
-  const clearCart = () => {
+  const clearCart = useCallback(() => {
     localStorage.removeItem("cart");
     setCart([]);
-  };
+  }, [setCart]);
 
   return (
     <CartContext.Provider
