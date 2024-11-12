@@ -18,12 +18,17 @@ const Cart = () => {
   const createInvoiceAndRedirect = async (e) => {
     e.preventDefault();
 
+    if (!bearerToken) {
+      window.location.href = "/guest-checkout";
+      return;
+    }
+
     try {
       const res = await fetch(`${apiUrl}/api/v1/invoices`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer ${bearerToken}`,
+          authorization: `Bearer ${bearerToken}` || "",
         },
         body: JSON.stringify({ cart }),
       });
@@ -33,7 +38,6 @@ const Cart = () => {
 
       window.location.href = `/shippingAndCheckout/${data.data.invoice._id}`;
     } catch (err) {
-      console.log(err);
       renderToast(
         "error",
         err.message || "Couldnt create invoice, please try again later."

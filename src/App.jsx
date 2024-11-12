@@ -14,6 +14,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import "./App.css";
 import FavoritesPage from "./pages/FavoritesPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
+import GuestCheckoutPage from "./pages/GuestCheckoutPage";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/category/:category" element={<Category />} />
             <Route path="/product/:productId" element={<ProductPage />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/guest-checkout" element={<GuestCheckoutPage />} />
             <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/account" element={<Account />} />
             <Route path="/forgotPassword" element={<ForgotPassword />} />
