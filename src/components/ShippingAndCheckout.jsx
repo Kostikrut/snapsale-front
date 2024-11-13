@@ -12,9 +12,10 @@ const apiUrl = config.API_URL;
 function ShippingAndCheckout() {
   const { bearerToken, userData } = useContext(LoginContext);
   const [invoiceDetails, setInvoiceDetails] = useState(null);
+  const [useSavedAddress, setUseSavedAddress] = useState(true);
   const [shippingDetails, setShippingDetails] = useState({
     shippingType: "standard",
-    address: userData?.address || {
+    address: {
       address: "",
       apartment: "",
       city: "",
@@ -22,6 +23,15 @@ function ShippingAndCheckout() {
     },
   });
   const { invoiceId } = useParams();
+
+  useEffect(() => {
+    if (userData?.address) {
+      setShippingDetails((prev) => ({
+        ...prev,
+        address: userData.address,
+      }));
+    }
+  }, [userData]);
 
   useEffect(() => {
     if (!bearerToken) return;
@@ -49,7 +59,7 @@ function ShippingAndCheckout() {
     };
 
     fetchInvoiceDetails();
-  }, [bearerToken, invoiceId]);
+  }, [bearerToken, invoiceId, shippingDetails]);
 
   const handleShippingTypeChange = (e) => {
     const newShippingType = e.target.value;
@@ -146,36 +156,59 @@ function ShippingAndCheckout() {
 
       {(shippingDetails.shippingType === "standard" ||
         shippingDetails.shippingType === "express") && (
-        <div className="address-form">
+        <div className="address-selection">
           <h4>Shipping Address</h4>
-          <input
-            type="text"
-            name="address"
-            placeholder="Address"
-            value={shippingDetails.address.address}
-            onChange={handleAddressChange}
-          />
-          <input
-            type="text"
-            name="apartment"
-            placeholder="Apartment"
-            value={shippingDetails.address.apartment}
-            onChange={handleAddressChange}
-          />
-          <input
-            type="text"
-            name="city"
-            placeholder="City"
-            value={shippingDetails.address.city}
-            onChange={handleAddressChange}
-          />
-          <input
-            type="text"
-            name="zipCode"
-            placeholder="Zip Code"
-            value={shippingDetails.address.zipCode}
-            onChange={handleAddressChange}
-          />
+          <label>
+            <input
+              type="radio"
+              name="addressOption"
+              checked={useSavedAddress}
+              onChange={() => setUseSavedAddress(true)}
+            />
+            Use Saved Address
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="addressOption"
+              checked={!useSavedAddress}
+              onChange={() => setUseSavedAddress(false)}
+            />
+            Use New Address
+          </label>
+
+          {!useSavedAddress && (
+            <div className="address-form">
+              <input
+                type="text"
+                name="address"
+                placeholder="Address"
+                value={shippingDetails.address.address}
+                onChange={handleAddressChange}
+              />
+              <input
+                type="text"
+                name="apartment"
+                placeholder="Apartment"
+                value={shippingDetails.address.apartment}
+                onChange={handleAddressChange}
+              />
+              <input
+                type="text"
+                name="city"
+                placeholder="City"
+                value={shippingDetails.address.city}
+                onChange={handleAddressChange}
+              />
+              <input
+                type="text"
+                name="zipCode"
+                placeholder="Zip Code"
+                value={shippingDetails.address.zipCode}
+                onChange={handleAddressChange}
+              />
+            </div>
+          )}
         </div>
       )}
 

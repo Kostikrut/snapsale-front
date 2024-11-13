@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 import { CartContext } from "../contexts/CartContext";
-import { LoginContext } from "../contexts/LoginContext";
 import { config } from "../config";
 
 import "./styles/PaymentSuccess.css";
@@ -12,7 +11,6 @@ const apiUrl = config.API_URL;
 function PaymentSuccess() {
   const [searchParams] = useSearchParams();
   const invoiceId = searchParams.get("invoice");
-  const { bearerToken } = useContext(LoginContext);
   const [invoiceData, setInvoiceData] = useState(null);
   const { clearCart } = useContext(CartContext);
 
@@ -20,13 +18,6 @@ function PaymentSuccess() {
     const getSession = async () => {
       const checkout = await fetch(
         `${apiUrl}/api/v1/invoices/${invoiceId}/retrieveCheckoutAndUpdateInvoice`
-        // {
-        //   method: "GET",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //     authorization: `Bearer ${bearerToken}`,
-        //   },
-        // }
       );
 
       const checkoutSession = await checkout.json();
