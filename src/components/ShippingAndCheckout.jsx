@@ -212,7 +212,9 @@ function ShippingAndCheckout() {
         </div>
       )}
 
-      <button onClick={updateShippingDetails}>Proceed to Payment</button>
+      <button className="update-shipping-btn" onClick={updateShippingDetails}>
+        Proceed to Payment
+      </button>
     </div>
   );
 }
