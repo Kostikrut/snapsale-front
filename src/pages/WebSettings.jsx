@@ -4,6 +4,7 @@ import AddListingPage from "./AddListing";
 import MenageListings from "./MenageListings";
 import MenageCategories from "../components/MenageCategories";
 import MenageUsers from "../components/MenageUsers";
+import MenageMarquees from "../components/MenageMarquees";
 import AddListingVariant from "../components/AddListingVariant";
 
 import "./styles/AddListingPage.css";
@@ -17,6 +18,7 @@ function WebSettings() {
     { "Manage Listing Variants": "manage-variants" },
     { "Manage Categories": "manage-categories" },
     { "Manage Users": "manage-users" },
+    { "Manage Marquees": "manage-marquees" },
   ];
 
   const renderListItem = (buttonText, className) => {
@@ -48,6 +50,7 @@ function WebSettings() {
         {selectedOption === "manage-listings" && <MenageListings />}
         {selectedOption === "manage-variants" && <AddListingVariant />}
         {selectedOption === "manage-categories" && <MenageCategories />}
+        {selectedOption === "manage-marquees" && <MenageMarquees />}
         {selectedOption === "manage-users" && <MenageUsers />}
       </div>
     </div>

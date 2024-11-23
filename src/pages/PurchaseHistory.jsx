@@ -1,13 +1,14 @@
 import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { LoginContext } from "../contexts/LoginContext";
 import { useLoading } from "../contexts/LoadingContext";
 
 import InvoiceDetails from "../components/InvoiceDetails";
+import Loading from "../components/Loading";
 import renderToast from "../utils/renderToast";
 import { config } from "../config";
 
 import "./styles/PurchaseHistory.css";
-import Loading from "../components/Loading";
 
 function PurchaseHistory() {
   const { bearerToken } = useContext(LoginContext);
@@ -62,7 +63,18 @@ function PurchaseHistory() {
           <InvoiceDetails key={invoice._id} invoice={invoice} />
         ))
       ) : (
-        <p>No purchase history available.</p>
+        <div className="no-purchase-history">
+          <div className="message">
+            <h2>No Purchase History</h2>
+            <p>
+              Looks like you haven’t made any purchases yet. Start shopping to
+              see your order history here!
+            </p>
+            <Link to="/">
+              <button className="shop-now-button">Shop Now</button>
+            </Link>
+          </div>
+        </div>
       )}
     </div>
   );

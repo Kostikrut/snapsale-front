@@ -1,0 +1,111 @@
+.marquee-edit {
+  width: 80%;
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h2,
+h3 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.marquee-list {
+  margin-top: 1rem;
+}
+
+.marquee-item {
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.marquee-item h3 {
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+.marquee-item p {
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.marquee-item a {
+  color: #0073e6;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.marquee-item a:hover {
+  text-decoration: underline;
+}
+
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.edit-button,
+.delete-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+.edit-button {
+  background-color: #007bff;
+}
+
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.delete-button {
+  background-color: #ff6b6b;
+}
+
+.delete-button:hover {
+  background-color: #ff3b3b;
+}
+
+.new-marquee-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.new-marquee-form input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.add-button {
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background-color: #0056b3;
+}

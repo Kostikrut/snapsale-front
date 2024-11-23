@@ -96,8 +96,6 @@ function AccountSettings() {
         err.message ||
           "Somethong went wrong on updating image, please try again later."
       );
-    } finally {
-      // setProfileImage("");
     }
   };
 

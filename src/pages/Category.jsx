@@ -2,15 +2,15 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import { useLoading } from "../contexts/LoadingContext";
+import Loading from "../components/Loading";
+import Pagination from "../components/Pagination";
 import ProductPreview from "./../components/ProductPreview";
 import FilterBox from "../components/FilterBox";
 
 import { config } from "../../src/config";
 
 import "./styles/CategoryPage.css";
-import { useLoading } from "../contexts/LoadingContext";
-import Loading from "../components/Loading";
-import Pagination from "../components/Pagination";
 
 function Category() {
   const { category } = useParams();

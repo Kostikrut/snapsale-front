@@ -19,6 +19,7 @@ import SaleIcon from "./../assets/Icons/sale.svg";
 function Header() {
   const { userData } = useContext(LoginContext);
   const categories = useCategory();
+  const [marquees, setMarquees] = useState([]);
   const [showCategories, setShowCategories] = useState(false);
   const categoriesDropdownRef = useRef(null);
 
@@ -36,6 +37,23 @@ function Header() {
       setShowCategories(false);
     }
   };
+
+  useEffect(() => {
+    const fetchMarquees = async () => {
+      try {
+        const res = await fetch(`${apiUrl}/api/v1/marquees/`, {
+          method: "GET",
+        });
+
+        const { data } = await res.json();
+
+        setMarquees(data.marquees);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchMarquees();
+  }, [apiUrl]);
 
   useEffect(() => {
     document.addEventListener("click", handleClickOutside);
@@ -110,7 +128,6 @@ function Header() {
         {showCategories && (
           <div className="categories-dropdown show">
             <ul>
-              {/* <ul ref={categoriesDropdownRef}> */}
               {categories.map((category, i) => (
                 <li key={i}>
                   <Link
@@ -130,7 +147,22 @@ function Header() {
             <img src={SaleIcon} alt="on sale" />
           </button>
         </Link>
-        <Marquee></Marquee>
+        <Marquee
+          pauseOnHover={true}
+          gradient={true}
+          gradientColor="var(--color-primary-dark)"
+          gradientWidth={100}
+        >
+          {marquees.length > 0 && (
+            <div className="marquee-list">
+              {marquees.map((marquee, i) => (
+                <Link to={marquee?.link} key={marquee.title + i}>
+                  <p style={{ color: "#fff" }}>{marquee.content}</p>
+                </Link>
+              ))}
+            </div>
+          )}
+        </Marquee>
       </div>
     </header>
   );

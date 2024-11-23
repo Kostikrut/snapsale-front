@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Slider from "rc-slider";
 import "../pages/styles/FilterBox.css";
 import "rc-slider/assets/index.css";
 
 const FilterBox = ({ listings, setLimit, onFilterChange }) => {
-  const [priceRange, setPriceRange] = useState([0, calcMaxPriceRange()]);
+  const [priceRange, setPriceRange] = useState([0, 0]);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [sortOption, setSortOption] = useState("newest");
   const [limit, setLimiter] = useState(10); // State for current limit
 
-  function calcMaxPriceRange() {
+  const calcMaxPriceRange = useCallback(() => {
     let max = 0;
     listings.forEach((listing) => {
       if (listing.price >= max) max = listing.price;
     });
     return max;
-  }
+  }, [listings]);
+
+  useEffect(() => {
+    setPriceRange([0, calcMaxPriceRange()]);
+  }, [listings, calcMaxPriceRange]);
 
   const handlePriceChange = (newPriceRange) => {
     setPriceRange(newPriceRange);
@@ -37,11 +41,11 @@ const FilterBox = ({ listings, setLimit, onFilterChange }) => {
   const handleFilterProducts = () => {
     const filteredFields = { priceRange, selectedBrands, sortOption };
     onFilterChange(filteredFields);
-    setLimit(limit); // Call setLimit with the current limit only when filter is applied
+    setLimit(limit);
   };
 
   const handleLimitChange = (limitItems) => {
-    setLimiter(limitItems); // Update the limit state when a new limit is selected
+    setLimiter(limitItems);
   };
 
   const uniqueBrands = [...new Set(listings.map((listing) => listing.brand))];
@@ -49,9 +53,18 @@ const FilterBox = ({ listings, setLimit, onFilterChange }) => {
   return (
     <div className="filter-box">
       <div className="filter-section">
+        <h3>Sort By</h3>
+        <select value={sortOption} onChange={handleSortChange}>
+          <option value="newest">Newest</option>
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+      </div>
+
+      <div className="filter-section">
         <h3>Price Range</h3>
         <Slider
-          range
+          range={priceRange}
           max={calcMaxPriceRange()}
           defaultValue={priceRange}
           onChange={handlePriceChange}
@@ -59,31 +72,6 @@ const FilterBox = ({ listings, setLimit, onFilterChange }) => {
         <div>
           ${priceRange[0]} - ${priceRange[1]}
         </div>
-      </div>
-
-      <div className="filter-section">
-        <h3>Brands</h3>
-        {uniqueBrands.map((brand) => (
-          <div key={brand}>
-            <label>
-              <input
-                type="checkbox"
-                checked={selectedBrands.includes(brand)}
-                onChange={() => handleBrandChange(brand)}
-              />
-              {brand}
-            </label>
-          </div>
-        ))}
-      </div>
-
-      <div className="filter-section">
-        <h3>Sort By</h3>
-        <select value={sortOption} onChange={handleSortChange}>
-          <option value="newest">Newest</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-        </select>
       </div>
 
       <div className="filter-section">
@@ -98,6 +86,22 @@ const FilterBox = ({ listings, setLimit, onFilterChange }) => {
                 onChange={() => handleLimitChange(limitItems)}
               />
               {` ${limitItems} - items`}
+            </label>
+          </div>
+        ))}
+      </div>
+
+      <div className="filter-section">
+        <h3>Brands</h3>
+        {uniqueBrands.map((brand) => (
+          <div key={brand}>
+            <label>
+              <input
+                type="checkbox"
+                checked={selectedBrands.includes(brand)}
+                onChange={() => handleBrandChange(brand)}
+              />
+              {brand}
             </label>
           </div>
         ))}
