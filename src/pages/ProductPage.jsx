@@ -12,7 +12,7 @@ import { config } from "../config";
 import "./styles/ProductPage.css";
 
 function ProductPage() {
-  const [product, setProduct] = useState(null); // Changed from {} to null to handle conditional rendering properly
+  const [product, setProduct] = useState(null);
   const { productId } = useParams();
   const { loading, showLoading, hideLoading } = useLoading();
 

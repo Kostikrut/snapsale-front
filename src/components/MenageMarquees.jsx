@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 import { LoginContext } from "../contexts/LoginContext";
 import renderToast from "../utils/renderToast";
+import MarqueeToEdit from "./MarqueeToEdit";
 import { config } from "../config";
 
 import "../pages/styles/MenageMarquees.css";
@@ -38,46 +39,6 @@ const MenageMarquees = () => {
     fetchMarquees();
   }, [bearerToken]);
 
-  const handleDelete = async (id) => {
-    try {
-      const res = await fetch(`${apiUrl}/api/v1/marquees/${id}`, {
-        method: "DELETE",
-        headers: {
-          authorization: `Bearer ${bearerToken}`,
-        },
-      });
-
-      if (!res.ok) {
-        throw new Error("Failed to delete marquee. relogin and try again.");
-      }
-
-      setMarquees(marquees.filter((marquee) => marquee._id !== id));
-    } catch (error) {
-      renderToast("error", "An error occurred while deleting marquee.");
-    }
-  };
-
-  const handleEdit = async (id) => {
-    const marquee = marquees.find((marquee) => marquee._id === id);
-    setNewMarquee(marquee);
-
-    const res = await fetch(`${apiUrl}/api/v1/marquees/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        authorization: `Bearer ${bearerToken}`,
-      },
-      body: JSON.stringify({ marquee: newMarquee }),
-    });
-    console.log(res);
-    if (!res.ok) {
-      throw new Error("Failed to edit marquee. relogin and try again.");
-    }
-
-    const data = await res.json();
-    console.log(data);
-  };
-
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
@@ -112,27 +73,11 @@ const MenageMarquees = () => {
       <div className="marquee-list">
         {marquees &&
           marquees.map((marquee) => (
-            <div key={marquee._id} className="marquee-item">
-              <h3>{marquee.title}</h3>
-              <p>{marquee.content}</p>
-              <Link to={marquee.link}>
-                <span>{marquee.link}</span>
-              </Link>
-              <div className="button-group">
-                <button
-                  onClick={() => handleEdit(marquee._id)}
-                  className="edit-button"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(marquee._id)}
-                  className="delete-button"
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
+            <MarqueeToEdit
+              key={marquee._id}
+              marquee={marquee}
+              setMarquees={setMarquees}
+            />
           ))}
       </div>
       <h3>Create New Marquee</h3>

@@ -36,13 +36,18 @@ function ProductSummery({ product }) {
       (acc, variant) => acc + Number(variant.price),
       0
     );
-    setTotalPrice(Number(product.price) + variantTotal);
+
+    const discount =
+      (+product.price + variantTotal) * (product.discount / 100) || 0;
+    const discountedPrice = +product.price + variantTotal - discount;
+
+    setTotalPrice(discountedPrice);
 
     const allVariantsSelected = variants.every((group) =>
       selectedVariants.some((variant) => variant.name === group[0].name)
     );
     setIsButtonDisabled(!allVariantsSelected);
-  }, [selectedVariants, product.price, variants]);
+  }, [selectedVariants, product.price, product.discount, variants]);
 
   const handleFavoriteClick = () => {
     if (isFavorite(product.id)) {
@@ -109,6 +114,12 @@ function ProductSummery({ product }) {
         </div>
 
         <div className="product-price">
+          {product.discount > 0 && (
+            <div className="product-before-discount">
+              <p>Before discount: </p>
+              <strike>{product.price}$</strike>
+            </div>
+          )}
           <p>Total: ${totalPrice.toFixed(2)}</p>
         </div>
 

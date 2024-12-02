@@ -199,3 +199,13 @@
   position: relative;
   /* z-index: 1000; */
 }
+
+.marquee-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 8rem;
+}
+
+.marquee-list:hover {
+  color: #ffcc00;
+}

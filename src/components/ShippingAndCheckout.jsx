@@ -22,6 +22,8 @@ function ShippingAndCheckout() {
       zipCode: "",
     },
   });
+  const [couponCode, setCouponCode] = useState("");
+  const [isCouponValid, setIsCouponValid] = useState(null);
   const { invoiceId } = useParams();
 
   useEffect(() => {
@@ -75,6 +77,28 @@ function ShippingAndCheckout() {
       ...prev,
       address: { ...prev.address, [name]: value },
     }));
+  };
+
+  const validateCoupon = async () => {
+    try {
+      const res = await fetch(`${apiUrl}/api/v1/coupons/validate`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${bearerToken}`,
+        },
+        body: JSON.stringify({ couponCode }),
+      });
+
+      const { valid } = await res.json();
+      if (!res.ok) throw new Error("Invalid coupon code");
+
+      setIsCouponValid(valid);
+      renderToast("success", "Coupon applied successfully!");
+    } catch (err) {
+      setIsCouponValid(false);
+      renderToast("error", err.message || "Invalid coupon code");
+    }
   };
 
   const updateShippingDetails = async () => {
@@ -164,8 +188,11 @@ function ShippingAndCheckout() {
               name="addressOption"
               checked={useSavedAddress}
               onChange={() => setUseSavedAddress(true)}
+              disabled={!userData?.address}
             />
-            Use Saved Address
+            <span className={userData?.address ? "" : "disabled-text"}>
+              Use Saved Address
+            </span>
           </label>
           <label>
             <input
@@ -211,6 +238,23 @@ function ShippingAndCheckout() {
           )}
         </div>
       )}
+
+      <div className="coupon-section">
+        <h3>Apply Coupon</h3>
+        <input
+          type="text"
+          placeholder="Enter coupon code"
+          value={couponCode}
+          onChange={(e) => setCouponCode(e.target.value)}
+        />
+        <button className="validate-coupon-btn" onClick={validateCoupon}>
+          Validate Coupon
+        </button>
+        {isCouponValid === true && <p className="success">Coupon is valid!</p>}
+        {isCouponValid === false && (
+          <p className="error">Invalid coupon code.</p>
+        )}
+      </div>
 
       <button className="update-shipping-btn" onClick={updateShippingDetails}>
         Proceed to Payment

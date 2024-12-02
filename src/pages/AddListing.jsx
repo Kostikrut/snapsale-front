@@ -19,6 +19,7 @@ const defaultFormData = {
   tags: "",
   description: "",
   price: "",
+  discount: 0,
   image: null,
 };
 
@@ -29,9 +30,18 @@ const AddListing = ({ editListing, setListing, setSearchedListings }) => {
 
   useEffect(() => {
     if (editListing) {
-      const { title, category, description, price, brand } = editListing;
+      const { title, category, description, price, brand, discount } =
+        editListing;
       const tags = editListing.tags;
-      setFormData({ title, category, description, price, tags, brand });
+      setFormData({
+        title,
+        category,
+        description,
+        price,
+        discount,
+        tags,
+        brand,
+      });
     }
   }, [editListing]);
 
@@ -93,6 +103,7 @@ const AddListing = ({ editListing, setListing, setSearchedListings }) => {
     data.append("tags", JSON.stringify(tagsArray));
     data.append("description", formData.description);
     data.append("price", formData.price);
+    data.append("discount", formData.discount);
     data.append("image", formData.image);
 
     try {
@@ -130,6 +141,7 @@ const AddListing = ({ editListing, setListing, setSearchedListings }) => {
     data.append("tags", JSON.stringify(tagsArray));
     data.append("description", formData.description);
     data.append("price", formData.price);
+    data.append("discount", formData.discount);
     if (formData.image) {
       data.append("image", formData.image);
     }
@@ -233,6 +245,17 @@ const AddListing = ({ editListing, setListing, setSearchedListings }) => {
             onChange={handleChange}
             required
             min="0"
+          />
+        </div>
+        <div>
+          <label>Discount (%)</label>
+          <input
+            type="number"
+            name="discount"
+            value={formData.discount || ""}
+            onChange={handleChange}
+            min={0}
+            max={100}
           />
         </div>
 

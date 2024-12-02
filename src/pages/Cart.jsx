@@ -33,10 +33,10 @@ const Cart = () => {
         body: JSON.stringify({ cart }),
       });
 
-      const data = await res.json();
+      const { data } = await res.json();
       if (!res.ok) throw data;
 
-      window.location.href = `/shippingAndCheckout/${data.data.invoice._id}`;
+      window.location.href = `/shippingAndCheckout/${data.invoice._id}`;
     } catch (err) {
       renderToast(
         "error",
@@ -50,7 +50,10 @@ const Cart = () => {
       amount = 0;
 
     cart.forEach((product) => {
-      sum += product.price * product.amount;
+      sum +=
+        product.price * product.amount -
+        product.price * product.amount * (product.discount / 100 || 0);
+
       amount += product.amount;
     });
 
@@ -82,7 +85,10 @@ const Cart = () => {
                   item.variants.map((variant) => variant.type).join(", ")
                 }`}</span>
                 <span className="cart-item-price">
-                  ${item.price.toFixed(2)}
+                  $
+                  {(
+                    item.price - ((item.price * item.discount) / 100 || 0)
+                  ).toFixed(2)}
                 </span>
                 <div className="amount-container">
                   <button onClick={() => updateAmount(item, "+")}>+</button>{" "}
