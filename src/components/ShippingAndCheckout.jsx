@@ -11,8 +11,11 @@ const apiUrl = config.API_URL;
 
 function ShippingAndCheckout() {
   const { bearerToken, userData } = useContext(LoginContext);
+  const { invoiceId } = useParams();
   const [invoiceDetails, setInvoiceDetails] = useState(null);
   const [useSavedAddress, setUseSavedAddress] = useState(true);
+  const [isCouponValid, setIsCouponValid] = useState(null);
+  const [couponCode, setCouponCode] = useState("");
   const [shippingDetails, setShippingDetails] = useState({
     shippingType: "standard",
     address: {
@@ -22,9 +25,18 @@ function ShippingAndCheckout() {
       zipCode: "",
     },
   });
-  const [couponCode, setCouponCode] = useState("");
-  const [isCouponValid, setIsCouponValid] = useState(null);
-  const { invoiceId } = useParams();
+
+  useEffect(() => {
+    if (!userData?.address) {
+      setUseSavedAddress(false);
+    } else {
+      setUseSavedAddress(true);
+      setShippingDetails((prev) => ({
+        ...prev,
+        address: userData.address,
+      }));
+    }
+  }, [userData]);
 
   useEffect(() => {
     if (userData?.address) {
@@ -37,6 +49,7 @@ function ShippingAndCheckout() {
 
   useEffect(() => {
     if (!bearerToken) return;
+
     const fetchInvoiceDetails = async () => {
       try {
         const res = await fetch(`${apiUrl}/api/v1/invoices/${invoiceId}`, {
@@ -85,9 +98,11 @@ function ShippingAndCheckout() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          authorization: `Bearer ${bearerToken}`,
         },
-        body: JSON.stringify({ couponCode }),
+        body: JSON.stringify({
+          code: couponCode,
+          invoiceId: invoiceDetails._id,
+        }),
       });
 
       const { valid } = await res.json();
@@ -129,6 +144,10 @@ function ShippingAndCheckout() {
   };
 
   const proceedOrderAndPay = async () => {
+    if (setIsCouponValid) {
+      await applyCoupon();
+    }
+
     try {
       const checkout = await fetch(
         `${apiUrl}/api/v1/invoices/${invoiceId}/createCheckoutSession`,
@@ -149,6 +168,31 @@ function ShippingAndCheckout() {
       console.log(
         err.message || "Couldn't proceed checkout, please try again later."
       );
+    }
+  };
+
+  const applyCoupon = async () => {
+    try {
+      const res = await fetch(`${apiUrl}/api/v1/coupons/apply`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          couponCode,
+          invoiceId: invoiceDetails._id,
+        }),
+      });
+
+      const { data } = await res.json();
+
+      console.log(data);
+      if (!res.ok) throw data;
+
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+      renderToast("error", err || "Couldn't apply coupon, try again.");
     }
   };
 
@@ -182,6 +226,7 @@ function ShippingAndCheckout() {
         shippingDetails.shippingType === "express") && (
         <div className="address-selection">
           <h4>Shipping Address</h4>
+
           <label>
             <input
               type="radio"
