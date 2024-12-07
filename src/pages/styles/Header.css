@@ -78,7 +78,7 @@
   display: flex;
   align-content: center;
   align-items: center;
-  padding: 1rem;
+  /* padding: 1rem; */
   padding-left: 2rem;
   padding-right: 2rem;
   width: 100vw;

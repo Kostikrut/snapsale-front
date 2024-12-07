@@ -70,7 +70,7 @@ const MenageMarquees = () => {
   return (
     <div className="marquee-edit">
       <h2>Edit Marquees</h2>
-      <div className="marquee-list">
+      <div className="marquee-items">
         {marquees &&
           marquees.map((marquee) => (
             <MarqueeToEdit

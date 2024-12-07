@@ -275,8 +275,20 @@ const CouponManager = () => {
               | <strong>Expires:</strong>{" "}
               {new Date(coupon.expirationDate).toLocaleDateString()}
             </p>
-            <button onClick={() => handleEdit(coupon)}>Edit</button>
-            <button onClick={() => handleDelete(coupon._id)}>Delete</button>
+            <div className="edit-coupon-btns">
+              <button
+                className="coupon-edit-btn"
+                onClick={() => handleEdit(coupon)}
+              >
+                Edit
+              </button>
+              <button
+                className="coupon-delete-btn"
+                onClick={() => handleDelete(coupon._id)}
+              >
+                Delete
+              </button>
+            </div>
           </li>
         ))}
       </ul>
