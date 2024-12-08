@@ -31,19 +31,6 @@ function InvoicesStats({ invoices }) {
   const [avgListingsPerInvoice, setAvgListingsPerInvoice] = useState(0);
   const [invoicesByShipping, setInvoicesByShipping] = useState({});
 
-  const data = {
-    labels: ["January", "February", "March"],
-    datasets: [
-      {
-        label: "Invoices",
-        data: [5, 10, 7],
-        backgroundColor: "#124e66",
-        borderColor: "#124e66",
-        fill: false,
-      },
-    ],
-  };
-
   useEffect(() => {
     if (invoices.length === 0) return;
 
