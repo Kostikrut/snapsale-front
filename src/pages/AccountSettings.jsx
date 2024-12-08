@@ -19,6 +19,12 @@ function AccountSettings() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [password, setPassword] = useState("");
   const [profileImage, setProfileImage] = useState(null);
+  const [address, setAddress] = useState({
+    apartment: "",
+    city: "",
+    address: "",
+    zipCode: "",
+  });
 
   const apiUrl = config.API_URL;
 
@@ -148,6 +154,42 @@ function AccountSettings() {
     }
   };
 
+  const handleAddAddress = async (e) => {
+    e.preventDefault();
+
+    const isEmptyField = Object.values(address).some((value) => !value.trim());
+    if (isEmptyField) {
+      return renderToast("error", "Please fill in all address fields.");
+    }
+
+    try {
+      const res = await fetch(`${apiUrl}/api/v1/users/updateMe`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          authorization: `Bearer ${bearerToken}`,
+        },
+        body: JSON.stringify({ address }),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw data;
+
+      renderToast("success", "Address updated successfully!");
+    } catch (err) {
+      renderToast(
+        err.message || "Something went wrong, please try again later."
+      );
+    } finally {
+      setAddress({
+        apartment: "",
+        city: "",
+        address: "",
+        zipCode: "",
+      });
+    }
+  };
+
   const handleLogout = (e) => {
     e.preventDefault();
 
@@ -209,6 +251,53 @@ function AccountSettings() {
               />
             </div>
             <button type="submit">Update Photo</button>
+          </form>
+        </section>
+        <section>
+          <h3>Update Address</h3>
+          <form id="address-form" onSubmit={handleAddAddress}>
+            <div>
+              <label>City:</label>
+              <input
+                type="text"
+                value={address.city}
+                onChange={(e) =>
+                  setAddress({ ...address, city: e.target.value })
+                }
+              />
+            </div>
+            <div>
+              <label>Address:</label>
+              <input
+                type="text"
+                value={address.address}
+                onChange={(e) =>
+                  setAddress({ ...address, address: e.target.value })
+                }
+              />
+            </div>
+            <div>
+              <label>Apartment/Suit:</label>
+              <input
+                type="text"
+                value={address.apartment}
+                onChange={(e) =>
+                  setAddress({ ...address, apartment: e.target.value })
+                }
+              />
+            </div>
+            <div>
+              <label>Zip Code:</label>
+              <input
+                type="text"
+                value={address.zipCode}
+                onChange={(e) =>
+                  setAddress({ ...address, zipCode: e.target.value })
+                }
+              />
+            </div>
+
+            <button type="submit">Save Address</button>
           </form>
         </section>
         <section>
