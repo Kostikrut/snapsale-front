@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import AddListingPage from "./AddListing";
 import MenageListings from "./MenageListings";
+import MenageInvoices from "../components/MenageInvoices";
 import MenageCategories from "../components/MenageCategories";
 import MenageUsers from "../components/MenageUsers";
 import MenageMarquees from "../components/MenageMarquees";
@@ -17,6 +18,7 @@ function WebSettings() {
     { "Add Listing": "add-listing" },
     { "Manage Listings": "manage-listings" },
     { "Manage Listing Variants": "manage-variants" },
+    { "Manage Invoices": "manage-invoices" },
     { "Manage Categories": "manage-categories" },
     { "Manage Users": "manage-users" },
     { "Manage Marquees": "manage-marquees" },
@@ -50,6 +52,7 @@ function WebSettings() {
       <div className="web-Settings-content">
         {selectedOption === "add-listing" && <AddListingPage />}
         {selectedOption === "manage-listings" && <MenageListings />}
+        {selectedOption === "manage-invoices" && <MenageInvoices />}
         {selectedOption === "manage-variants" && <AddListingVariant />}
         {selectedOption === "manage-categories" && <MenageCategories />}
         {selectedOption === "manage-marquees" && <MenageMarquees />}

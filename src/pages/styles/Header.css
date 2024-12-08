@@ -197,7 +197,8 @@
 
 .header-navigator {
   position: relative;
-  /* z-index: 1000; */
+  padding: 0.5rem;
+  padding-left: 1.5rem;
 }
 
 .marquee-list {

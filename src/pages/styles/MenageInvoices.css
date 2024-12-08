@@ -1,0 +1,122 @@
+.menage-invoices-container {
+  max-width: 75rem;
+  margin: auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.menage-invoices-container h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.filter-invoices-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 0.625rem;
+  box-shadow: 1 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-invoices-box input,
+.filter-invoices-box select {
+  align-self: center;
+  height: 3rem;
+  flex: 1;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--color-primary-dark);
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.filter-invoices-box input:focus {
+  border-color: var(--color-highlight);
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.invoice-table thead {
+  background-color: var(--color-accent-dark);
+  color: #fff;
+}
+
+.invoice-table th,
+.invoice-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+}
+
+.invoice-table th {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.invoice-table tbody tr:nth-child(even) {
+  background-color: var(--color-accent-light-grey);
+}
+
+.invoice-table tbody tr:nth-child(odd) {
+  background-color: var(--color-accent-light);
+}
+
+.invoice-table tbody tr:hover {
+  background-color: var(--color-accent-dark);
+  color: #fff;
+}
+
+.invoice-table td {
+  color: var(--text-color);
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.pagination-btn {
+  background: var(--color-accent-light);
+  color: var(--text-light);
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.3rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+  background: var(--color-highlight);
+}
+
+.pagination-btn.active {
+  background: var(--color-highlight);
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .filter-box {
+    flex-direction: column;
+  }
+
+  .invoice-table th,
+  .invoice-table td {
+    padding: 0.5rem 0.8rem;
+  }
+}
