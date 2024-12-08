@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useContext, useCallback } from "react";
+import { ToastContainer } from "react-toastify";
 
 import renderToast from "../utils/renderToast";
 import { config } from "../config";
 import { LoginContext } from "../contexts/LoginContext";
-
-import { ToastContainer } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 import "../pages/styles/MenageCoupons.css";
