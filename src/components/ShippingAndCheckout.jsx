@@ -172,6 +172,10 @@ function ShippingAndCheckout() {
   };
 
   const applyCoupon = async () => {
+    if (!couponCode) {
+      return;
+    }
+
     try {
       const res = await fetch(`${apiUrl}/api/v1/coupons/apply`, {
         method: "POST",
@@ -186,12 +190,8 @@ function ShippingAndCheckout() {
 
       const { data } = await res.json();
 
-      console.log(data);
       if (!res.ok) throw data;
-
-      console.log(data);
     } catch (err) {
-      console.log(err);
       renderToast("error", err || "Couldn't apply coupon, try again.");
     }
   };
