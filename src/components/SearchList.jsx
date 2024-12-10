@@ -25,6 +25,7 @@ function SearchList({ searchText, searchListRef, action }) {
         if (!data.data.length) return;
 
         setSearchResaults(data.data);
+        console.log(data.data);
 
         controller.abort();
       } catch (err) {
@@ -45,7 +46,7 @@ function SearchList({ searchText, searchListRef, action }) {
                 {
                   <img
                     className="list-item-img"
-                    src={`${apiUrl + listing.image.url}`}
+                    src={`${listing.image.url}`}
                     alt={listing.slag}
                   />
                 }
