@@ -13,6 +13,7 @@ const Carousel = ({ banners }) => {
       prevIndex === 0 ? banners.length - 1 : prevIndex - 1
     );
   };
+
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();

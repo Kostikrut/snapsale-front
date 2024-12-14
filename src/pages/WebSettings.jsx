@@ -6,6 +6,7 @@ import MenageInvoices from "../components/MenageInvoices";
 import MenageCategories from "../components/MenageCategories";
 import MenageUsers from "../components/MenageUsers";
 import MenageMarquees from "../components/MenageMarquees";
+import MenageBanners from "../components/MenageBanners";
 import MenageCoupons from "../components/MenageCoupons";
 import AddListingVariant from "../components/AddListingVariant";
 
@@ -22,6 +23,7 @@ function WebSettings() {
     { "Manage Categories": "manage-categories" },
     { "Manage Users": "manage-users" },
     { "Manage Marquees": "manage-marquees" },
+    { "Manage Banners": "manage-banners" },
     { "Manage Coupons": "manage-coupons" },
   ];
 
@@ -56,6 +58,7 @@ function WebSettings() {
         {selectedOption === "manage-variants" && <AddListingVariant />}
         {selectedOption === "manage-categories" && <MenageCategories />}
         {selectedOption === "manage-marquees" && <MenageMarquees />}
+        {selectedOption === "manage-banners" && <MenageBanners />}
         {selectedOption === "manage-users" && <MenageUsers />}
         {selectedOption === "manage-coupons" && <MenageCoupons />}
       </div>

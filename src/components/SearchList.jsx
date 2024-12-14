@@ -25,7 +25,6 @@ function SearchList({ searchText, searchListRef, action }) {
         if (!data.data.length) return;
 
         setSearchResaults(data.data);
-        console.log(data.data);
 
         controller.abort();
       } catch (err) {
