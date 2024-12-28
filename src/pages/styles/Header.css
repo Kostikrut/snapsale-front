@@ -76,9 +76,7 @@
 
 .header-navigator {
   display: flex;
-  align-content: center;
-  align-items: center;
-  /* padding: 1rem; */
+
   padding-left: 2rem;
   padding-right: 2rem;
   width: 100vw;
@@ -128,7 +126,7 @@
 .categories-dropdown {
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 1rem;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
@@ -209,4 +207,12 @@
 
 .marquee-list:hover {
   color: #ffcc00;
+}
+
+@media (max-width: 800px) {
+  .header-links {
+    flex-direction: row;
+    padding: 1rem;
+    gap: 3rem;
+  }
 }

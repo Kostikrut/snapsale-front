@@ -15,6 +15,10 @@ import "./App.css";
 import FavoritesPage from "./pages/FavoritesPage";
 import ResetPasswordPage from "./pages/ResetPasswordPage";
 import GuestCheckoutPage from "./pages/GuestCheckoutPage";
+import FAQPage from "./pages/FAQ";
+import ReturnsPage from "./pages/Returns";
+import ShippingAndDelivery from "./pages/ShippingAndDelivery";
+import ContactUs from "./pages/ContactUs";
 
 function App() {
   return (
@@ -30,6 +34,10 @@ function App() {
             <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/account" element={<Account />} />
             <Route path="/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/returns" element={<ReturnsPage />} />
+            <Route path="/shipping" element={<ShippingAndDelivery />} />
+            <Route path="/contact" element={<ContactUs />} />
             <Route
               path="/resetPassword/:token"
               element={<ResetPasswordPage />}

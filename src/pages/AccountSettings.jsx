@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
@@ -12,6 +12,8 @@ import "react-toastify/dist/ReactToastify.css";
 function AccountSettings() {
   const { bearerToken, updateUserLoggedState, logOut } =
     useContext(LoginContext);
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState({});
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -28,7 +30,31 @@ function AccountSettings() {
 
   const apiUrl = config.API_URL;
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const getUserData = async () => {
+      try {
+        const res = await fetch(`${apiUrl}/api/v1/users/me`, {
+          method: "GET",
+          headers: {
+            authorization: `Bearer ${bearerToken}`,
+          },
+        });
+
+        const { data } = await res.json();
+
+        if (!res.ok) throw data;
+
+        setUserData(data.user);
+      } catch (err) {
+        renderToast(
+          err.message ||
+            "Something went wrong, please try again later or relogin."
+        );
+      }
+    };
+
+    getUserData();
+  }, [bearerToken, apiUrl]);
 
   const handleUpdateAccount = async (e) => {
     e.preventDefault();
@@ -202,7 +228,20 @@ function AccountSettings() {
     <>
       <ToastContainer />
       <div className="account-settings">
-        <h2>Account Settings</h2>
+        <div className="user-info">
+          <div className="profile-image-container">
+            <img
+              src={userData?.image?.url || "/default-profile.png"} // Default image if user photo is unavailable
+              alt="User Profile"
+              className="profile-image"
+            />
+          </div>
+          <div className="user-details">
+            <h2>{userData.fullName || "User Name"}</h2>
+            <p>{userData.email || "user@example.com"}</p>
+          </div>
+        </div>
+
         <section>
           <h3>Update Account Information</h3>
           <form id="account-info-form" onSubmit={handleUpdateAccount}>

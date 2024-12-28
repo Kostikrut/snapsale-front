@@ -84,23 +84,20 @@ function InvoicesStats({ invoices }) {
 
         <div className="stat-card">
           <h3>Invoices Per Day</h3>
-          <div className="stat-card">
-            <h3>Invoices Per Day</h3>
-            <Line
-              data={{
-                labels: Object.keys(invoicesPerDay),
-                datasets: [
-                  {
-                    label: "Invoices",
-                    data: Object.values(invoicesPerDay),
-                    backgroundColor: "#124e66",
-                    borderColor: "#124e66",
-                    fill: false,
-                  },
-                ],
-              }}
-            />
-          </div>
+          <Line
+            data={{
+              labels: Object.keys(invoicesPerDay),
+              datasets: [
+                {
+                  label: "Invoices",
+                  data: Object.values(invoicesPerDay),
+                  backgroundColor: "#124e66",
+                  borderColor: "#124e66",
+                  fill: false,
+                },
+              ],
+            }}
+          />
         </div>
 
         <div className="stat-card">

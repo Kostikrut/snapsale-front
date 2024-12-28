@@ -1,7 +1,7 @@
 .account-references {
   display: flex;
-  flex-direction: column;
   width: 100%;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -28,19 +28,21 @@
 }
 
 .sidebar-link {
+  padding: 3rem;
   list-style: none;
   cursor: pointer;
   text-decoration: none;
 }
 
-.sidebar-link button {
+.sidebar-link .acc-act-btn {
   background-color: var(--color-accent-dark);
   border-style: none;
   color: #fff;
-  width: 20rem;
+  /* width: 20rem; */
+  gap: 2rem;
 }
 
-.sidebar-link.active button {
+.sidebar-link.active .acc-act-btn {
   border-bottom: 3px solid #fff;
   padding: none;
   height: 2rem;

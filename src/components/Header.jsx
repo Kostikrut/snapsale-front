@@ -25,7 +25,8 @@ function Header() {
 
   const apiUrl = config.API_URL;
 
-  const toggleCategories = () => {
+  const toggleCategories = (e) => {
+    e.stopPropagation();
     setShowCategories((prev) => !prev);
   };
 
@@ -37,6 +38,13 @@ function Header() {
       setShowCategories(false);
     }
   };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     const fetchMarquees = async () => {
@@ -54,13 +62,6 @@ function Header() {
     };
     fetchMarquees();
   }, [apiUrl]);
-
-  useEffect(() => {
-    document.addEventListener("click", handleClickOutside);
-    return () => {
-      document.removeEventListener("click", handleClickOutside);
-    };
-  }, []);
 
   return (
     <header>
@@ -109,7 +110,7 @@ function Header() {
                   ) : (
                     <img
                       className="header-icons"
-                      src={apiUrl + userData.image.url}
+                      src={userData.image.url}
                       alt="Account"
                     />
                   )}
@@ -126,7 +127,7 @@ function Header() {
           <img src={CategoriesIcon} alt="categories list" />
         </button>
         {showCategories && (
-          <div className="categories-dropdown show">
+          <div className="categories-dropdown show" ref={categoriesDropdownRef}>
             <ul>
               {categories.map((category, i) => (
                 <li key={i}>
@@ -148,6 +149,7 @@ function Header() {
           </button>
         </Link>
         <Marquee
+          className="marquees-container"
           pauseOnHover={true}
           gradient={true}
           gradientColor="var(--color-primary-dark)"

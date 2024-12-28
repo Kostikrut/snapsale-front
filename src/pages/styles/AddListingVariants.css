@@ -1,9 +1,6 @@
-/* AddListingVariants.css */
-
 .manage-variants-container {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   padding: 2rem;
   max-width: 1200px;
   margin: auto;
@@ -46,7 +43,7 @@ h1 {
 
 .lisitng-search-bar button {
   padding: 0.75rem 1.5rem;
-  background-color: var(--color-accent);
+  background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -56,7 +53,7 @@ h1 {
 }
 
 .lisitng-search-bar button:hover {
-  background-color: var(--color-accent-dark);
+  background-color: #0056b3;
 }
 
 select {
@@ -218,23 +215,19 @@ select {
   margin: 5px 0;
 }
 
-/* Add hover effect to each variant */
 .variant:hover {
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* variants */
-/* Container for the variants */
 .variants-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  padding: 1rem;
   margin-top: 20px;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
-/* Each individual variant card */
 .variant {
   display: flex;
   background-color: white;

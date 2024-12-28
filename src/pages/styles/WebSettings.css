@@ -1,10 +1,11 @@
 .web-settings-container {
   display: flex;
+
   justify-content: space-around;
 }
 
 .web-Settings-content {
-  width: 90rem;
+  width: 100%;
   margin-left: 0;
   height: auto;
 }
@@ -44,4 +45,42 @@
 .web-settings-option.active {
   background-color: #007bff;
   color: white;
+}
+
+@media (max-width: 1200px) {
+  .web-settings-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .web-settings-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .web-settings-sidebar {
+    max-width: 100rem;
+    min-width: 5rem;
+    padding: 0;
+    width: 100%;
+  }
+
+  .web-settings-option {
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 0.3125rem;
+    font-size: 1rem;
+    color: #555;
+  }
+}
+
+@media (max-width: 1400px) {
+  .web-settings-sidebar {
+    margin-left: 5px;
+    margin-right: 0;
+    padding: 0.4rem;
+    min-width: 15rem;
+  }
 }

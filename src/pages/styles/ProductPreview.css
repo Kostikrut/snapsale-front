@@ -38,9 +38,8 @@
 }
 
 .product-preview-details span {
-  font-size: 0.9rem;
-  color: #555;
   margin-bottom: 0.5rem;
+  font-size: 1.3rem;
   display: block;
 }
 
@@ -68,4 +67,41 @@
 }
 .product-preview-btns button:hover {
   color: #fff;
+}
+
+.discount-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ffcc00;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.product-img-container {
+  position: relative;
+}
+
+.price-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.original-price {
+  font-size: 1.3rem;
+  text-decoration: line-through;
+  color: var(--color-accent-dark);
+}
+
+.discounted-price {
+  color: #ffcc00;
+  font-weight: bold;
+  font-size: 1.6rem;
 }

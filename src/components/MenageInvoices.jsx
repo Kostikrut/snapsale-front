@@ -125,42 +125,44 @@ function MenageInvoices() {
       </div>
 
       {/* Table Section */}
-      <table className="invoice-table">
-        <thead>
-          <tr>
-            <th>Invoice Id</th>
-            <th>User/Guest Id</th>
-            <th>Listings</th>
-            <th>Shipping Type</th>
-            <th>Total Price</th>
-            <th>Status</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentInvoices.map((invoice) => (
-            <tr key={invoice._id}>
-              <td>{invoice._id}</td>
-              <td>
-                {invoice.user
-                  ? `${invoice.user}`
-                  : `${invoice.guestInfo?.fullName} (${invoice.guestInfo?.email})`}
-              </td>
-              <td>
-                {invoice.listings.map((item, index) => (
-                  <div key={index}>
-                    {item.title} (x{item.amount})
-                  </div>
-                ))}
-              </td>
-              <td>{invoice.shippingOpt?.shippingType || "N/A"}</td>
-              <td>${invoice.totalPrice.toFixed(2)}</td>
-              <td>{invoice.status}</td>
-              <td>{new Date(invoice.createdAt).toLocaleDateString()}</td>
+      <div className="invoice-table-wrapper">
+        <table className="invoice-table">
+          <thead>
+            <tr>
+              <th>Invoice Id</th>
+              <th>User/Guest Id</th>
+              <th>Listings</th>
+              <th>Shipping Type</th>
+              <th>Total Price</th>
+              <th>Status</th>
+              <th>Date</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {currentInvoices.map((invoice) => (
+              <tr key={invoice._id}>
+                <td>{invoice._id}</td>
+                <td>
+                  {invoice.user
+                    ? `${invoice.user}`
+                    : `${invoice.guestInfo?.fullName} (${invoice.guestInfo?.email})`}
+                </td>
+                <td>
+                  {invoice.listings.map((item, index) => (
+                    <div key={index}>
+                      {item.title} (x{item.amount})
+                    </div>
+                  ))}
+                </td>
+                <td>{invoice.shippingOpt?.shippingType || "N/A"}</td>
+                <td>${invoice.totalPrice.toFixed(2)}</td>
+                <td>{invoice.status}</td>
+                <td>{new Date(invoice.createdAt).toLocaleDateString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Pagination */}
       <div className="pagination-container">

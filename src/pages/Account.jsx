@@ -1,9 +1,11 @@
 import { useContext, useState } from "react";
-import LoginBox from "../components/LoginBox";
+
 import { LoginContext } from "../contexts/LoginContext";
-import SignUpBox from "../components/SignUpBox";
-import "./styles/Account.css";
 import AccountLayout from "./AccountLayout";
+import LoginBox from "../components/LoginBox";
+import SignUpBox from "../components/SignUpBox";
+
+import "./styles/Account.css";
 
 function Account() {
   const { isLoggedIn, bearerToken } = useContext(LoginContext);

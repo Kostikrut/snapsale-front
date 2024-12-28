@@ -1,7 +1,9 @@
 import { useState } from "react";
+
 import AccountSettings from "./AccountSettings";
 import PurchaseHistory from "./PurchaseHistory";
 import WebSettings from "./WebSettings";
+
 import "./styles/AccountLayout.css";
 
 function AccountLayout() {
@@ -32,15 +34,21 @@ function AccountLayout() {
       <aside className="account-sidebar">
         <ul className="sidebar-links">
           <li className={`sidebar-link ${selectAccSettings ? "active" : ""}`}>
-            <button onClick={switchToAccSettings}>Account Settings</button>
+            <button className="acc-act-btn" onClick={switchToAccSettings}>
+              Account Settings
+            </button>
           </li>
           <li
             className={`sidebar-link ${selectPurchaseHistory ? "active" : ""}`}
           >
-            <button onClick={switchPurchaseHistory}>Purchase History</button>
+            <button className="acc-act-btn" onClick={switchPurchaseHistory}>
+              Purchase History
+            </button>
           </li>
           <li className={`sidebar-link ${selectWebSettings ? "active" : ""}`}>
-            <button onClick={switchToWebSettings}>Web Settings</button>
+            <button className="acc-act-btn" onClick={switchToWebSettings}>
+              Web Settings
+            </button>
           </li>
         </ul>
       </aside>

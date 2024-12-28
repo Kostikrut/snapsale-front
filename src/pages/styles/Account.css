@@ -2,30 +2,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f0f0f0;
-  height: 100%;
+  justify-content: center;
+  background: var(--background-color, #f9f9f9);
+  padding: 2rem;
+
+  color: var(--color-primary-dark);
+  margin-right: 3rem;
+  margin-left: 3rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
 }
 
 .sign-selector-btns {
   display: flex;
-  margin: 1rem;
-  width: 12rem;
-  justify-content: space-around;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .sign-selector {
-  border-style: none;
-  background-color: var(--color-accent-light);
-  padding: 0.3rem;
-  margin-top: 1rem;
-  width: 5rem;
-  border-radius: 4px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--secondary-color, #6e8898);
+  color: var(--text-light, #fff);
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .sign-selector.active {
-  background-color: var(--color-accent-dark);
+  background-color: var(--primary-color, #2e5266);
+}
 
-  border-style: none;
-  color: #fff;
+.sign-selector:hover {
+  background-color: var(--highlight-color, #e2c044);
+}
+
+@media (max-width: 1400px) {
+  .sign-container {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
 }

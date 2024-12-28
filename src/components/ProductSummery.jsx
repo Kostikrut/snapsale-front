@@ -40,6 +40,7 @@ function ProductSummery({ product }) {
     const discount =
       (+product.price + variantTotal) * (product.discount / 100) || 0;
     const discountedPrice = +product.price + variantTotal - discount;
+    console.log(discount);
 
     setTotalPrice(discountedPrice);
 

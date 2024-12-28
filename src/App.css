@@ -34,21 +34,17 @@ body {
 a {
   text-decoration: none;
   display: inline-block;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
 }
 
 a:hover {
   color: var(--color-primary);
 }
 
-/* ================================
-   Content 
-   ================================ */
-
 .content {
   flex-grow: 1;
   justify-content: center;
-  padding: 1.2rem;
-  background-color: var(--color-accent-light);
-  /* min-height: 100vh; */
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  background-color: var(--color-primary-dark);
 }

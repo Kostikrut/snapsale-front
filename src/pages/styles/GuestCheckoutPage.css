@@ -27,7 +27,7 @@
 .form-group label {
   font-size: 1rem;
   margin-bottom: 0.4rem;
-  color: var(--color-accent);
+  color: var(--color-accent-dark);
 }
 
 .form-group input,

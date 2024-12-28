@@ -1,20 +1,19 @@
-/* MenageUsers.css */
 .menage-users-container {
-  max-width: 75rem; /* 960px */
+  max-width: 75rem;
   margin: 0 auto;
-  padding: 2rem; /* 32px */
+  padding: 2rem;
   background-color: #f9f9f9;
-  border-radius: 0.625rem; /* 10px */
-  box-shadow: 0 0.125rem 0.9375rem rgba(0, 0, 0, 0.1); /* 2px 15px */
+  border-radius: 0.625rem;
+  box-shadow: 0 0.125rem 0.9375rem rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem; /* 20px */
+  gap: 1.25rem;
 }
 
 h1 {
   color: #333;
   font-size: 1.8rem;
-  margin-bottom: 1.25rem; /* 20px */
+  margin-bottom: 1.25rem;
 }
 
 .edit-selected-user label {
@@ -25,11 +24,10 @@ h1 {
 select,
 input[type="file"] {
   width: 100%;
-  padding: 0.75rem 0.9375rem; /* 12px 15px */
-  margin: 0.625rem 0; /* 10px */
-  border: 0.0625rem solid #ddd; /* 1px */
-  border-radius: 0.3125rem; /* 5px */
-  font-size: 1rem;
+  padding: 0.75rem 0.9375rem;
+  margin: 0.625rem 0;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.3125rem;
   transition: border-color 0.3s;
 }
 
@@ -41,10 +39,10 @@ input[type="file"]:focus {
 }
 
 .menage-users-btn {
-  padding: 0.75rem 1.25rem; /* 12px 20px */
+  padding: 0.75rem 1.25rem;
   font-size: 1rem;
   border: none;
-  border-radius: 0.3125rem; /* 5px */
+  border-radius: 0.3125rem;
   background-color: #007bff;
   color: white;
   cursor: pointer;
@@ -53,7 +51,7 @@ input[type="file"]:focus {
 
 .menage-users-btn:hover {
   background-color: #0056b3;
-  transform: translateY(-0.125rem); /* 2px */
+  transform: translateY(-0.125rem);
 }
 
 .menage-users-btn:active {
@@ -65,9 +63,9 @@ input[type="file"]:focus {
 .select-user,
 .edit-selected-user {
   background-color: #f9f9f9;
-  padding: 1.25rem; /* 20px */
-  border-radius: 0.625rem; /* 10px */
-  box-shadow: 0 0.125rem 0.9375rem rgba(0, 0, 0, 0.1); /* 2px 15px */
+  padding: 1.25rem;
+  border-radius: 0.625rem;
+  box-shadow: 0 0.125rem 0.9375rem rgba(0, 0, 0, 0.1);
 }
 
 .user-id {
@@ -76,14 +74,14 @@ input[type="file"]:focus {
 }
 
 .user-profile-img {
-  max-width: 9.375rem; /* 150px */
+  max-width: 9.375rem;
   height: auto;
   border-radius: 50%;
-  margin: 0.625rem 0; /* 10px */
+  margin: 0.625rem 0;
 }
 
 .edit-selected-user div {
-  margin-bottom: 0.9375rem; /* 15px */
+  margin-bottom: 0.9375rem;
 }
 
 .edit-selected-user p {
@@ -93,7 +91,7 @@ input[type="file"]:focus {
 .edit-user {
   display: flex;
   justify-content: space-between;
-  gap: 0.9375rem; /* 15px */
+  gap: 0.9375rem;
 }
 
 .edit-user .menage-users-btn {

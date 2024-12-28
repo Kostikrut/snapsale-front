@@ -1,8 +1,29 @@
 import React, { useState, useEffect, useCallback } from "react";
+
+import { config } from "../config";
+
 import "../pages/styles/Carousel.css";
 
-const Carousel = ({ banners }) => {
+const apiUrl = config.API_URL;
+
+const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [banners, setBanners] = useState([]);
+
+  useEffect(() => {
+    const fetchBanners = async () => {
+      try {
+        const res = await fetch(`${apiUrl}/api/v1/banners`);
+
+        const data = await res.json();
+
+        setBanners(data.data.banners);
+      } catch (error) {
+        console.error("Error fetching banners", error);
+      }
+    };
+    fetchBanners();
+  }, []);
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
@@ -30,7 +51,7 @@ const Carousel = ({ banners }) => {
           className="carousel-slide"
           style={{ display: currentIndex === index ? "block" : "none" }}
         >
-          <img src={banner.src} alt={`Banner ${index + 1}`} />
+          <img src={banner.image.url} alt={`Banner ${index + 1}`} />
         </a>
       ))}
       <button

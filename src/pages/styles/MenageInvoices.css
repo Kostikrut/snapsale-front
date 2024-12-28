@@ -1,10 +1,11 @@
 .menage-invoices-container {
-  max-width: 75rem;
+  width: 100%;
   margin: auto;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
+  overflow-x: auto;
 }
 
 .menage-invoices-container h2 {
@@ -16,11 +17,10 @@
 
 .filter-invoices-box {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  width: 100%;
   gap: 1rem;
   margin-bottom: 2rem;
-  margin: 0 auto;
   padding: 2rem;
   background-color: #f9f9f9;
   border-radius: 0.625rem;
@@ -31,23 +31,31 @@
 .filter-invoices-box select {
   align-self: center;
   height: 3rem;
-  flex: 1;
+  flex: 1 1 calc(33.33% - 1rem);
   padding: 0.7rem 1rem;
   font-size: 1rem;
   border: 1px solid var(--color-primary-dark);
   border-radius: 4px;
   outline: none;
   transition: border-color 0.3s ease;
+  min-width: 150px; /* Ensures inputs don't get too small */
 }
 
 .filter-invoices-box input:focus {
   border-color: var(--color-highlight);
 }
 
+.invoice-table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* Adds horizontal scrolling for the table */
+}
+
 .invoice-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1rem;
+  min-width: 800px; /* Ensures a minimum width for readability */
+  table-layout: auto; /* Makes the table adjust column sizes dynamically */
 }
 
 .invoice-table thead {
@@ -59,11 +67,26 @@
 .invoice-table td {
   padding: 0.8rem 1rem;
   text-align: left;
+  white-space: nowrap;
 }
 
 .invoice-table th {
   font-size: 1rem;
   font-weight: 600;
+}
+
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  table-layout: fixed;
+  min-width: 100%;
+}
+
+.invoice-table th,
+.invoice-table td {
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .invoice-table tbody tr:nth-child(even) {
@@ -111,8 +134,8 @@
 }
 
 @media (max-width: 768px) {
-  .filter-box {
-    flex-direction: column;
+  .filter-invoices-box {
+    flex-direction: column; /* Stacks inputs vertically on smaller screens */
   }
 
   .invoice-table th,

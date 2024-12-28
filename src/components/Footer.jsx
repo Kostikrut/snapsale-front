@@ -1,4 +1,5 @@
 import React from "react";
+
 import "../pages/styles/Footer.css";
 
 const Footer = () => {
@@ -36,26 +37,39 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Social Media Links */}
-        <div className="footer-section">
-          <h4>Follow Us</h4>
-          <div className="social-icons">
-            <a href="https://facebook.com">
-              <i className="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://twitter.com">
-              <i className="fab fa-twitter"></i>
-            </a>
-            <a href="https://instagram.com">
-              <i className="fab fa-instagram"></i>
-            </a>
-          </div>
-        </div>
-
         {/* Payment Methods */}
         <div className="footer-section">
           <h4>We Accept</h4>
-          <img src="/images/payment-methods.png" alt="Payment Methods" />
+          <div className="payment-options">
+            <div className="payment-method">
+              <i className="fab fa-cc-visa"></i>
+              <span>Visa</span>
+            </div>
+            <div className="payment-method">
+              <i className="fab fa-cc-mastercard"></i>
+              <span>MasterCard</span>
+            </div>
+            <div className="payment-method">
+              <i className="fab fa-cc-amex"></i>
+              <span>American Express</span>
+            </div>
+            <div className="payment-method">
+              <i className="fab fa-cc-discover"></i>
+              <span>Discover</span>
+            </div>
+            <div className="payment-method">
+              <i className="fab fa-cc-paypal"></i>
+              <span>PayPal</span>
+            </div>
+            <div className="payment-method">
+              <i className="fab fa-google-pay"></i>
+              <span>Google Pay</span>
+            </div>
+            <div className="payment-method">
+              <i className="fab fa-apple-pay"></i>
+              <span>Apple Pay</span>
+            </div>
+          </div>
         </div>
       </div>
 

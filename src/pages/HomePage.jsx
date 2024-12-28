@@ -56,13 +56,9 @@ function HomePage() {
 
   return (
     <div className="homepage">
-      <Carousel
-        banners={[
-          {
-            src: "https://rosenbach.org/wp-content/uploads/2018/09/Moby-Dick-graphic-1500x500.jpg",
-          },
-        ]}
-      />
+      <div className="carousel">
+        <Carousel />
+      </div>
       <div className="category-preview-container">
         {listings.map((listing) => {
           const category = categories.find((el) => el.category === listing._id);
@@ -73,7 +69,7 @@ function HomePage() {
               listings={listing.listings}
               key={listing._id}
             />
-          ) : null; // If category is not found, don't render the component
+          ) : null;
         })}
       </div>
     </div>

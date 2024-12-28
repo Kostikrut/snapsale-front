@@ -11,6 +11,7 @@ const FavoritesPage = () => {
   if (favorites.length === 0) {
     return (
       <div className="favorites-page">
+        <h2 className="favorites-title">Your Favorites</h2>
         <p className="favorites-empty">You have no favorite items yet.</p>
       </div>
     );

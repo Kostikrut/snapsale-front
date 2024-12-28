@@ -5,10 +5,9 @@
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color: var(
-    --color-accent-light-grey
-  ); /* Feel free to adjust to your design */
-  color: var(--color-accent-dark); /* Matches your design style */
+  background-color: var(--color-accent-light-grey);
+  color: var(--color-accent-dark);
+  border-radius: 1rem;
 }
 
 .not-found-title {
@@ -21,7 +20,7 @@
 .not-found-message {
   font-size: 1.5rem;
   margin: 1rem 0;
-  color: var(--color-accent-dark); /* Adjust for readability */
+  color: var(--color-accent-dark);
 }
 
 .not-found-home-link {
@@ -32,8 +31,4 @@
   border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s;
-}
-
-.not-found-home-link:hover {
-  background-color: var(--color-accent-dark);
 }

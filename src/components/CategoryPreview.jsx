@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-
 import capitalize from "../utils/capitalizeStr";
-
 import "../pages/styles/CategoryPreview.css";
 
 function CategoryPreview({ category, listings }) {
@@ -24,6 +22,11 @@ function CategoryPreview({ category, listings }) {
               className="listing-link"
             >
               <div className="listing-preview">
+                {listing.discountPercentage > 0 && (
+                  <div className="discount-badge">
+                    {`-${listing.discountPercentage}%`}
+                  </div>
+                )}
                 <img
                   src={listing.image.imageUrl}
                   alt={`${listing.title}`}
@@ -33,19 +36,35 @@ function CategoryPreview({ category, listings }) {
                   <span className="rating">{`${listing.ratingsAvg}/10 (${listing.numRatings})`}</span>
                   <span className="brand">{listing.brand}</span>
                   <span className="title">{listing.title}</span>
-                  <span className="price">{listing.price} $</span>
+                  {+listing.discount > 0 && (
+                    <div className="discount-badge">
+                      {`-${listing.discount}%`}
+                    </div>
+                  )}
+                  <div className="price-container">
+                    {listing.discount > 0 ? (
+                      <span className="price cat-discounted-price">
+                        {(listing.price * (1 - listing.discount / 100)).toFixed(
+                          0
+                        )}
+                        $
+                      </span>
+                    ) : (
+                      <span className="cat-price">{listing.price} $</span>
+                    )}
+                  </div>
                 </div>
               </div>
             </Link>
           ))}
+          <Link
+            to={`/category/${category.category}`}
+            className="see-more-btn"
+            aria-label="See more listings"
+          >
+            ...
+          </Link>
         </div>
-        <Link
-          to={`/category/${category.category}`}
-          className="see-more-btn"
-          aria-label="See more listings"
-        >
-          ...
-        </Link>
       </div>
     </div>
   );

@@ -22,6 +22,9 @@ function ProductPreview({ product, type }) {
   return (
     <div className="product-preview">
       <div className="product-img-container">
+        {product.discount > 0 && (
+          <div className="discount-badge">{`-${product.discount}%`}</div>
+        )}
         <img className="product-image" src={imageUrl} alt={product.slug} />
       </div>
       <div className="product-preview-details">
@@ -30,7 +33,22 @@ function ProductPreview({ product, type }) {
         <span>
           {product.ratingsAvg}/10⭐️ ({product.numRatings})
         </span>
-        <h5>{product.price}$</h5>
+        <div className="price-container">
+          {product.discount > 0 ? (
+            <>
+              {!product.discount && (
+                <span className=" original-price">{product.price} $</span>
+              )}
+              {product.discount > 0 && (
+                <span className=" discounted-price">
+                  {(product.price * (1 - product.discount / 100)).toFixed(0)} $
+                </span>
+              )}
+            </>
+          ) : (
+            <span className="price">{product.price} $</span>
+          )}
+        </div>
       </div>
       <div className="product-preview-btns">
         <a href={`/product/${product.id}`}>
