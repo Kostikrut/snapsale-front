@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 
 import useCategory from "../hooks/useCategory";
-import CategoryPreview from "../components/CategoryPreview";
 import Carousel from "../components/Carousel";
-
+import CategoryPreview from "../components/CategoryPreview";
 import { config } from "../../src/config";
 
 import "./styles/HomePage.css";

@@ -44,7 +44,7 @@ function AccountSettings() {
 
         if (!res.ok) throw data;
 
-        setUserData(data.user);
+        setUserData(data.data);
       } catch (err) {
         renderToast(
           err.message ||
@@ -237,8 +237,8 @@ function AccountSettings() {
             />
           </div>
           <div className="user-details">
-            <h2>{userData.fullName || "User Name"}</h2>
-            <p>{userData.email || "user@example.com"}</p>
+            <h2>{userData?.fullName || "User Name"}</h2>
+            <p>{userData?.email || "user@example.com"}</p>
           </div>
         </div>
 
