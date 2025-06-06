@@ -161,6 +161,8 @@ function ShippingAndCheckout() {
       );
 
       const session = await checkout.json();
+
+      console.log(session);
       if (!checkout.ok) throw session;
 
       window.location.href = session.sessionUrl;

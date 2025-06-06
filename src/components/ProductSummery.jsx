@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useMemo } from "react";
 
 import ReviewsBox from "./ReviewsBox";
 import { CartContext } from "../contexts/CartContext";
@@ -31,6 +31,17 @@ function ProductSummery({ product }) {
   const { addToFavorites, removeFromFavorite, isFavorite } =
     useContext(FavoriteContext);
 
+  // calc ratingsAvg and numRatings from reviews (if available)
+  const { ratingsAvg, numRatings } = useMemo(() => {
+    if (!Array.isArray(product.reviews) || product.reviews.length === 0) {
+      return { ratingsAvg: 0, numRatings: 0 };
+    }
+    const numRatings = product.reviews.length;
+    const sum = product.reviews.reduce((acc, review) => acc + review.rating, 0);
+    const avg = Math.round((sum / numRatings) * 10) / 10;
+    return { ratingsAvg: avg, numRatings };
+  }, [product.reviews]);
+
   useEffect(() => {
     const variantTotal = selectedVariants.reduce(
       (acc, variant) => acc + Number(variant.price),
@@ -40,7 +51,6 @@ function ProductSummery({ product }) {
     const discount =
       (+product.price + variantTotal) * (product.discount / 100) || 0;
     const discountedPrice = +product.price + variantTotal - discount;
-    console.log(discount);
 
     setTotalPrice(discountedPrice);
 
@@ -57,6 +67,7 @@ function ProductSummery({ product }) {
       addToFavorites(product);
     }
   };
+
   const handleVariantSelect = (variantName, variant) => {
     setSelectedVariants((prev) => {
       const updatedVariants = prev.filter((v) => v.name !== variantName);
@@ -78,9 +89,10 @@ function ProductSummery({ product }) {
         <div className="product-image">
           <img src={product?.image?.url} alt={product.title} />
         </div>
+
         <div className="product-rating">
           <span>
-            {product.ratingsAvg}/10⭐️ ({product.numRatings})
+            {ratingsAvg}/10⭐️ ({numRatings})
           </span>
         </div>
 
@@ -89,9 +101,9 @@ function ProductSummery({ product }) {
             <div key={index} className="variant-section">
               <h4>Select {variantGroup[0].name}</h4>
               <div className="variant-options">
-                {variantGroup.map((variant, idx) => (
+                {variantGroup.map((variant, i) => (
                   <div
-                    key={idx}
+                    key={i}
                     className={`variant-box ${
                       selectedVariants.some(
                         (selected) =>

@@ -75,15 +75,14 @@ export const LoginProvider = ({ children }) => {
       const data = await res.json();
 
       if (!res.ok)
-        throw (
-          data.message || "Login failed, check your credentials and try again."
-        );
+        throw data || "Login failed, check your credentials and try again.";
 
       updateUserLoggedState(data);
     } catch (err) {
       renderToast(
         "error",
-        err || "Listing could not be created, please re-login and try again"
+        err.message ||
+          "Listing could not be created, please re-login and try again"
       );
     }
   };
@@ -114,16 +113,14 @@ export const LoginProvider = ({ children }) => {
 
       const data = await res.json();
 
-      if (!res.ok)
-        throw (
-          data.message || "Signup failed, check your credentials and try again."
-        );
+      if (!res.ok) throw data || "Sign up failed, please try again.";
 
       updateUserLoggedState(data);
     } catch (err) {
       renderToast(
         "error",
-        err || "Listing could not be created, please re-login and try again"
+        err.message ||
+          "Listing could not be created, please re-login and try again"
       );
     }
   };

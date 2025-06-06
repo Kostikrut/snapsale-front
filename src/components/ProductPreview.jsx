@@ -4,10 +4,11 @@ import { FavoriteContext } from "../contexts/FavoritesContext";
 
 import FavoriteIcon from "../assets/Icons/favorite-fill.svg";
 import FadedFavoriteIcon from "../assets/Icons/favorite-fill-faded.svg";
+
 import "../pages/styles/ProductPreview.css";
 
 function ProductPreview({ product, type }) {
-  let imageUrl = product.image ? product.image.url : "default-image-url.png"; // {{DO LATER}} Change to default image url
+  let imageUrl = product.image ? product.image.url : "default-image-url.png";
   const { addToFavorites, removeFromFavorite, isFavorite } =
     useContext(FavoriteContext);
 
@@ -28,11 +29,9 @@ function ProductPreview({ product, type }) {
         <img className="product-image" src={imageUrl} alt={product.slug} />
       </div>
       <div className="product-preview-details">
-        <h6>{product.brand}</h6>
+        <h4>{product.brand}</h4>
         <h6>{product.title}</h6>
-        <span>
-          {product.ratingsAvg}/10⭐️ ({product.numRatings})
-        </span>
+
         <div className="price-container">
           {product.discount > 0 ? (
             <>

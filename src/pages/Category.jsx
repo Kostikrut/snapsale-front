@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
 import { useLoading } from "../contexts/LoadingContext";
 import Loading from "../components/Loading";
 import Pagination from "../components/Pagination";
-import ProductPreview from "./../components/ProductPreview";
+import ProductPreview from "../components/ProductPreview";
 import FilterBox from "../components/FilterBox";
 
 import { config } from "../../src/config";
@@ -19,6 +18,7 @@ function Category() {
   const [limit, setLimit] = useState(10);
   const [isLastPage, setIsLastPage] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [showFilter, setShowFilter] = useState(false);
   const { loading: PageLoading, showLoading, hideLoading } = useLoading();
 
   const apiUrl = config.API_URL;
@@ -52,6 +52,7 @@ function Category() {
     }
 
     setFilteredProducts(filter);
+    setShowFilter(false);
   };
 
   useEffect(() => {
@@ -78,11 +79,28 @@ function Category() {
 
   return (
     <div className="category-container">
-      <FilterBox
-        listings={[...products]}
-        setLimit={setLimit}
-        onFilterChange={handleFilterChange}
-      />
+      <button className="open-filter-btn" onClick={() => setShowFilter(true)}>
+        Open Filters
+      </button>
+
+      {showFilter && (
+        <div className="filter-modal">
+          <div className="filter-modal-content">
+            <button
+              className="close-filter-btn"
+              onClick={() => setShowFilter(false)}
+            >
+              ✕
+            </button>
+            <FilterBox
+              listings={[...products]}
+              setLimit={setLimit}
+              onFilterChange={handleFilterChange}
+            />
+          </div>
+        </div>
+      )}
+
       <div className="category-list-container">
         {PageLoading ? (
           <Loading />
@@ -91,13 +109,12 @@ function Category() {
             <div>
               <h1>Product List</h1>
               <ul className="product-preview-list">
-                {filteredProducts.length > 0
-                  ? filteredProducts.map((product) => (
-                      <ProductPreview product={product} key={product.title} />
-                    ))
-                  : products.map((product) => (
-                      <ProductPreview product={product} key={product.title} />
-                    ))}
+                {(filteredProducts.length > 0
+                  ? filteredProducts
+                  : products
+                ).map((product) => (
+                  <ProductPreview product={product} key={product.title} />
+                ))}
               </ul>
             </div>
             <Pagination

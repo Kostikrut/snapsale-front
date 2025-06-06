@@ -16,6 +16,7 @@ const MenageBanners = () => {
     isActive: true,
   });
   const [editingBanner, setEditingBanner] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchBanners = useCallback(async () => {
     try {
@@ -50,6 +51,7 @@ const MenageBanners = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const form = new FormData();
     for (const key in formData) {
@@ -79,6 +81,8 @@ const MenageBanners = () => {
       fetchBanners();
     } catch (error) {
       console.error("Error saving banner", error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -138,7 +142,7 @@ const MenageBanners = () => {
             onChange={handleInputChange}
           />
         </label>
-        <button type="submit">
+        <button type="submit" disabled={isLoading}>
           {editingBanner ? "Update" : "Create"} Banner
         </button>
       </form>

@@ -1,24 +1,21 @@
 .category-container {
   display: flex;
-  justify-self: center;
-  justify-content: space-between;
+  flex-direction: column;
   background-color: #f9f9f9;
   padding: 2rem;
   width: 100%;
   border-radius: 1rem;
+  box-sizing: border-box;
 }
 
 .category-list-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   background-color: #f9f9f9;
   width: 100%;
-  margin-left: 2rem;
-  margin-right: 2rem;
   min-height: 60rem;
 }
 
-h1 {
-  margin: 2rem;
+.product-preview-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.4rem;
 }

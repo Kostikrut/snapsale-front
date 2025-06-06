@@ -1,78 +1,98 @@
-/* FilterBox.css */
-.filter-box {
-  max-width: 30rem;
-  min-width: 20rem;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #f9f9f9;
-  border-radius: 0.625rem;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
-
-.filter-section {
-  margin-bottom: 2rem;
-}
-
-.filter-section h3 {
-  font-size: 1.5rem;
+.open-filter-btn {
+  background-color: var(--color-accent);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
   margin-bottom: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.open-filter-btn:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.filter-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5rem 1rem 2rem;
+  z-index: 999;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.filter-modal-content {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  position: relative;
+  animation: fadeInTop 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+@keyframes fadeInTop {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.close-filter-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  z-index: 1;
+}
+
+.close-filter-btn:hover {
   color: #333;
 }
 
-.rc-slider {
-  margin: 1rem 0;
-}
-.filter-section div {
-  font-size: 1rem;
-  color: #555;
-}
-
-.filter-section label {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.filter-section input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
-
-.filter-section select {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 0.0625rem solid #ddd;
-  border-radius: 0.3125rem;
-  font-size: 1rem;
-  transition: border-color 0.3s;
-}
-
-.filter-section select:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
 .filter-btn {
-  display: flex;
-  justify-content: center;
-}
-
-.filter-btn button {
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
-  background-color: #007bff;
+  background-color: var(--color-accent-dark);
   color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
   border: none;
-  border-radius: 0.3125rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s;
 }
 
-.filter-btn button:hover {
-  background-color: #0056b3;
-  transform: translateY(-0.125rem);
+.filter-btn:hover {
+  background-color: var(--color-accent);
 }
 
-.filter-btn button:active {
-  background-color: #004080;
-  transform: translateY(0);
+.filter-modal-content .filter-btn-wrapper {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding-top: 1rem;
+  margin-top: auto;
 }

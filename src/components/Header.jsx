@@ -14,7 +14,6 @@ import AccountIcon from "./../assets/Icons/login.svg";
 import FavoritesIcon from "./../assets/Icons/favorite.svg";
 import ShoppingCartIcon from "./../assets/Icons/shopping-cart.svg";
 import CategoriesIcon from "./../assets/Icons/categories.svg";
-import SaleIcon from "./../assets/Icons/sale.svg";
 
 function Header() {
   const { userData } = useContext(LoginContext);
@@ -142,12 +141,12 @@ function Header() {
             </ul>
           </div>
         )}
-        <Link to="/on-sale">
+        {/* <Link to="/on-sale">
           <button className="onsale-btn">
             <span>On Sale</span>
             <img src={SaleIcon} alt="on sale" />
           </button>
-        </Link>
+        </Link> */}
         <Marquee
           className="marquees-container"
           pauseOnHover={true}

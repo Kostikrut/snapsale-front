@@ -107,11 +107,9 @@ const FilterBox = ({ listings, setLimit, onFilterChange }) => {
         ))}
       </div>
 
-      <div className="filter-btn">
-        <button className="filter-btn" onClick={handleFilterProducts}>
-          Filter
-        </button>
-      </div>
+      <button className="filter-btn" onClick={handleFilterProducts}>
+        Filter
+      </button>
     </div>
   );
 };

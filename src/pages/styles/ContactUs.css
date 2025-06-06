@@ -31,23 +31,16 @@ p {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   margin-top: 2rem;
+  height: 50vh;
 }
 
-.contact-form,
 .contact-info {
-  flex: 1 1 calc(50% - 1rem);
-  background: #f3f3f3;
+  background-color: #d7e9f2;
+  padding: 4rem;
   border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form h2,
-.contact-info h2 {
-  margin-bottom: 1rem;
-  color: var(--color-primary);
 }
 
 .form-group {

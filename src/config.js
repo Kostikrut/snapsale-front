@@ -1,5 +1,5 @@
 const config = {
-  API_URL: "https://snapsalemarket.store",
+  API_URL: "http://localhost:4000",
 };
 
 const getCategories = async () => {

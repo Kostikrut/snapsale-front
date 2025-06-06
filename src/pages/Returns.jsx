@@ -15,10 +15,8 @@ const ReturnsPage = () => {
       <h2>How to Request a Return</h2>
       <p>
         To request a return, kindly email our Returns Support team at{" "}
-        <a href="mailto:returns@snapsalemarket.com">
-          returns@snapsalemarket.com
-        </a>
-        . Please include the following information in your email:
+        <a href="mailto:returns@snapsale.cc">returns@snapsale.cc</a>. Please
+        include the following information in your email:
       </p>
 
       <ul className="returns-list">

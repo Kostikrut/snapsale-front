@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
 
-// import { fetchImagesUrls } from "../utils/fetchImagesUrls";
 import useFetchUrls from "../hooks/useFetchUrls";
 
 export const FavoriteContext = createContext();
@@ -17,6 +16,11 @@ export const FavoritesProvider = ({ children }) => {
   const addToFavorites = (item) => {
     setFavorites((prevFavorites) => {
       if (!prevFavorites.find((fav) => fav.id === item.id)) {
+        localStorage.setItem(
+          "favorites",
+          JSON.stringify([...prevFavorites, item])
+        );
+
         return [...prevFavorites, item];
       }
       return prevFavorites;

@@ -44,7 +44,7 @@ function AccountSettings() {
 
         if (!res.ok) throw data;
 
-        setUserData(data.data);
+        setUserData(data.user);
       } catch (err) {
         renderToast(
           err.message ||
@@ -231,7 +231,7 @@ function AccountSettings() {
         <div className="user-info">
           <div className="profile-image-container">
             <img
-              src={userData?.image?.url || "/default-profile.png"} // Default image if user photo is unavailable
+              src={userData?.image?.url || "/default-profile.png"}
               alt="User Profile"
               className="profile-image"
             />
